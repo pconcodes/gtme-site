@@ -1,0 +1,65 @@
+---
+title: "The case study you just triggered"
+slug: "live-lead-pipeline"
+domain: "leadops"
+problem: "Every GTM portfolio claims the skills. None let you verify them. A hiring manager can't tell who can build the systems from who just lists them on a résumé."
+result: "You already saw it work: submitting the form enriched your details and created a contact in my CRM in real time — the job itself, demonstrated inside the thing I used to apply for it."
+order: 1
+featured: true
+illustrative: false
+stack: ["Next.js", "HubSpot", "Clay", "Slack", "Vercel"]
+---
+
+## Problem
+
+A GTM Engineer is hired to build systems — clean data, automated enrichment,
+lead routing that runs without a human. But every portfolio for the role looks
+the same: a list of tools and adjectives on a static page. There's no way for a
+hiring manager to tell the people who can actually build those systems from the
+people who just name them.
+
+So instead of describing what I can build, I made this site *be* one of the
+systems. The contact form isn't a form that emails me — it's a working lead
+pipeline, and you're the one who runs it.
+
+## Architecture
+
+When you submit the form, the request hits a Next.js API route that orchestrates
+the whole pipeline. Every integration runs in parallel and degrades gracefully
+on its own, so one failure never takes down the rest.
+
+- **Validate + de-bot.** The route validates the input and silently drops bots
+  via a hidden honeypot field — no CAPTCHA friction for real people.
+- **Enrich instantly.** The moment you submit, your email is parsed for its
+  domain, work-vs-personal signal, and likely company domain — fast enough to
+  show back to you on the confirmation.
+- **Enrich deeply.** The lead is handed to a Clay webhook for the heavier
+  firmographic enrichment and routing that would slow down a synchronous
+  response.
+- **Push to the CRM.** The contact is upserted into HubSpot — created, or
+  updated by email if it already exists — so the record is always clean.
+- **Notify.** A Slack message fires so I see the lead the instant it lands.
+
+```text
+Form submit → Next.js API route
+            → validate + honeypot
+            → instant email enrichment  ┐
+            → Clay (deep enrichment)     ├─ run in parallel
+            → HubSpot (upsert contact)   │
+            → Slack (notify me)          ┘
+            → live status back to you
+```
+
+Each integration is wired behind an environment variable, so the system is
+modular: a key can be added or rotated without touching the code, and the form
+keeps working even if one service is turned off.
+
+## Result
+
+> This one is verifiable, because you just caused it. The details you entered
+> were enriched and written to my CRM in real time, and the confirmation showed
+> you exactly which systems fired.
+
+That's the whole point. Most candidates ask you to trust a claim. This is the
+GTM system doing its job — in the artifact I used to reach you. If it works this
+cleanly on my own site, imagine it pointed at your pipeline.
