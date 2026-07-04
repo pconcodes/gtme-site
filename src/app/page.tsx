@@ -1,12 +1,5 @@
 import Link from "next/link";
 
-const metrics = [
-  { value: "205%", label: "of quota, 2024 (Founding SDR)" },
-  { value: "127%", label: "peak quota attainment, Vercel" },
-  { value: "$50–300K", label: "deal sizes owned as AE" },
-  { value: "25–50", label: "concurrent deals managed" },
-];
-
 const experience = [
   {
     company: "HeroDevs",
@@ -129,25 +122,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-
-        {/* Mock pipeline dashboard */}
-        <div className="relative mx-auto max-w-5xl px-6 pb-20" aria-hidden>
-          <PipelineMock />
-        </div>
-      </section>
-
-      {/* Metrics bar */}
-      <section className="border-y border-white/5 bg-white/[0.02]">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-6 md:grid-cols-4">
-          {metrics.map((m) => (
-            <div key={m.label} className="px-4 py-8 text-center">
-              <div className="text-3xl font-semibold tracking-tight text-white">
-                {m.value}
-              </div>
-              <div className="mt-1 text-sm text-zinc-500">{m.label}</div>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Experience */}
@@ -266,64 +240,6 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
       <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
         {title}
       </h2>
-    </div>
-  );
-}
-
-function PipelineMock() {
-  const rows = [
-    { company: "Northwind Drupal", stage: "Negotiation", value: "$220K", tone: "hot" },
-    { company: "Globex LATAM", stage: "Proposal", value: "$150K", tone: "warm" },
-    { company: "Acme NES", stage: "Discovery", value: "$80K", tone: "cool" },
-    { company: "Initech", stage: "Closed Won", value: "$95K", tone: "won" },
-  ] as const;
-
-  const toneClass: Record<string, string> = {
-    hot: "bg-red-500/15 text-red-300 border-red-500/30",
-    warm: "bg-amber-500/15 text-amber-300 border-amber-500/30",
-    cool: "bg-zinc-500/15 text-zinc-300 border-zinc-500/30",
-    won: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
-  };
-
-  return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d10] shadow-2xl shadow-red-950/20">
-      {/* window chrome */}
-      <div className="flex items-center gap-2 border-b border-white/5 px-4 py-3">
-        <span className="h-3 w-3 rounded-full bg-white/15" />
-        <span className="h-3 w-3 rounded-full bg-white/15" />
-        <span className="h-3 w-3 rounded-full bg-white/15" />
-        <span className="ml-3 flex items-center gap-2 text-xs text-zinc-500">
-          <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
-          Pipeline · SMB / LATAM
-        </span>
-      </div>
-      {/* rows */}
-      <div className="divide-y divide-white/5">
-        {rows.map((r) => (
-          <div
-            key={r.company}
-            className="flex items-center justify-between gap-4 px-5 py-4 text-sm"
-          >
-            <span className="font-medium text-zinc-200">{r.company}</span>
-            <div className="flex items-center gap-4">
-              <span
-                className={`rounded-full border px-2.5 py-0.5 text-xs ${toneClass[r.tone]}`}
-              >
-                {r.stage}
-              </span>
-              <span className="w-16 text-right font-mono text-zinc-400">
-                {r.value}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* footer strip */}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-1 border-t border-white/5 px-5 py-3 text-xs text-zinc-500">
-        <span>25–50 deals owned</span>
-        <span>$50K–$300K range</span>
-        <span>Auto-enriched · routed to CRM</span>
-      </div>
     </div>
   );
 }
