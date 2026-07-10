@@ -3,38 +3,60 @@ import Link from "next/link";
 const experience = [
   {
     company: "HeroDevs",
-    role: "SMB Account Executive · Founding SDR",
     dates: "Feb 2024 — Jun 2026",
-    points: [
-      "Founding and sole AE for the SMB / Drupal NES / LATAM Enterprise segment.",
-      "Architected the SMB pipeline-forecasting process from scratch.",
-      "Owned 25–50 concurrent deals from $50K–$300K across Mid-Market and LATAM Enterprise.",
-      "Built Apollo product sequences for all inbound leads.",
-      "205% of quota as Founding SDR (2024); 90% attainment as AE (2025).",
-      "Ran full-cycle discovery→close for Drupal NES; 70% conversion on partner outreach.",
-      "Architected the SDR→AE handoff and the team's core Notion docs & dashboards.",
+    roles: [
+      {
+        role: "SMB Account Executive",
+        dates: "Nov 2024 — Jun 2026",
+        points: [
+          "Owned 25–50 deals at a time.",
+          "Created product sequences for all inbound leads in Apollo.",
+          "Architected pipeline-forecasting process for the SMB segment.",
+          "Built a local app with Claude Code to automate prospecting & outreach for EOL OSS GitHub repos.",
+        ],
+      },
+      {
+        role: "Founding SDR",
+        dates: "Feb 2024 — Oct 2024",
+        points: [
+          "Architected the SDR to AE handoff process.",
+          "Synthesized all SDR reports and dashboards.",
+          "Architected core Notion documentation for the sales team.",
+          "Built Notion documentation & analytics dashboards for the SDR team.",
+        ],
+      },
     ],
   },
   {
     company: "Vercel",
-    role: "Allbound SDR · Growth VDR (founding)",
     dates: "Aug 2022 — Nov 2023",
-    points: [
-      "127% and 108% quota attainment; Top SDR performance, Q2 2023.",
-      "2nd-highest monthly quota attainment in team history.",
-      "Founding Growth VDR member — contributed to a 50% QoQ lift in the Enterprise funnel.",
-      "Built Outreach sequences for the new Growth PA team and led outreach copywriting.",
-      "Managed contacts, cases and opportunities in Salesforce.",
+    roles: [
+      {
+        role: "Allbound SDR · Growth VDR (founding)",
+        dates: "Aug 2022 — Nov 2023",
+        points: [
+          "127% and 108% quota attainment; Top SDR performance, Q2 2023.",
+          "2nd-highest monthly quota attainment in team history.",
+          "Founding Growth VDR member — contributed to a 50% QoQ lift in the Enterprise funnel.",
+          "Built Outreach sequences for the new Growth PA team and led outreach copywriting.",
+          "Managed contacts, cases and opportunities in Salesforce.",
+        ],
+      },
     ],
   },
   {
     company: "BloomTech (Lambda School)",
-    role: "Full-Stack Web Development",
     dates: "Aug 2021 — May 2022",
-    points: [
-      "Built with JavaScript, React, Node.js and SQL (plus HTML/CSS).",
-      "Git workflow, Agile development, client & server testing.",
-      "Architected PostgreSQL databases.",
+    roles: [
+      {
+        role: "Full-Stack Web Development",
+        dates: "Aug 2021 — May 2022",
+        points: [
+          "Built with JavaScript, React, Node.js and SQL (plus HTML/CSS).",
+          "Git workflow, Agile development, client & server testing.",
+          "Architected PostgreSQL databases.",
+        ],
+      },
     ],
   },
 ];
@@ -112,15 +134,26 @@ export default function Home() {
                 <h3 className="text-xl font-semibold text-white">{job.company}</h3>
                 <span className="text-sm text-zinc-500">{job.dates}</span>
               </div>
-              <p className="mt-1 text-sm font-medium text-red-400">{job.role}</p>
-              <ul className="mt-4 space-y-2">
-                {job.points.map((p) => (
-                  <li key={p} className="flex gap-3 text-sm leading-6 text-zinc-400">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-red-500" />
-                    {p}
-                  </li>
+              <div className="mt-4 space-y-6">
+                {job.roles.map((r) => (
+                  <div key={r.role}>
+                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                      <p className="text-sm font-medium text-red-400">{r.role}</p>
+                      {job.roles.length > 1 && (
+                        <span className="text-xs text-zinc-500">{r.dates}</span>
+                      )}
+                    </div>
+                    <ul className="mt-2 space-y-2">
+                      {r.points.map((p) => (
+                        <li key={p} className="flex gap-3 text-sm leading-6 text-zinc-400">
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-red-500" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
