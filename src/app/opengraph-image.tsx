@@ -53,7 +53,7 @@ export default function OpengraphImage() {
               letterSpacing: -2,
             }}
           >
-            The GTM systems behind the quota.
+            Sales Rep → GTM Engineer
           </div>
           <div style={{ display: "flex", fontSize: 34, color: "#a1a1aa" }}>
             Top-performing SDR &amp; AE, now a GTM Engineer.

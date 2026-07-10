@@ -77,9 +77,8 @@ export default function Home() {
           </Link>
 
           <h1 className="mt-8 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-5xl font-semibold leading-[1.05] tracking-tight text-transparent sm:text-7xl">
-            The GTM systems
-            <br />
-            behind the quota.
+            Sales Rep
+            <br />→ GTM Engineer
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
