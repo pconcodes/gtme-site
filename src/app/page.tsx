@@ -82,9 +82,7 @@ export default function Home() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
-            I&apos;m a top-performing SDR and AE who builds the systems that make
-            sales scale — clean CRM data, automated enrichment and routing, and
-            outbound that runs itself. Now I do it as a GTM Engineer.
+            Certified full-stack developer with 4+ years in SaaS Sales (ex-Vercel).
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
