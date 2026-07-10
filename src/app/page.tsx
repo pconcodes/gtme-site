@@ -32,14 +32,35 @@ const experience = [
     dates: "Aug 2022 — Nov 2023",
     roles: [
       {
-        role: "Allbound SDR · Growth VDR (founding)",
-        dates: "Aug 2022 — Nov 2023",
+        role: "Sales Development Representative",
+        dates: "Sep 2023 — Nov 2023",
         points: [
-          "127% and 108% quota attainment; Top SDR performance, Q2 2023.",
+          "108% quota attainment.",
+          "Top Performance by an SDR (Q2 2023).",
+          "Spearheaded copywriting for outreach campaign.",
           "2nd-highest monthly quota attainment in team history.",
-          "Founding Growth VDR member — contributed to a 50% QoQ lift in the Enterprise funnel.",
-          "Built Outreach sequences for the new Growth PA team and led outreach copywriting.",
-          "Managed contacts, cases and opportunities in Salesforce.",
+        ],
+      },
+      {
+        role: "Growth / Inbound SDR",
+        dates: "Jan 2023 — Aug 2023",
+        points: [
+          "127% quota attainment.",
+          "Sequenced existing contacts for product education and upgrades.",
+          "Created workflows and Outreach sequences for new Growth PA team.",
+          "Engaged existing Hobby and Pro accounts for additional product needs.",
+          "Contributed to a 50% QoQ lift in our Enterprise funnel as a founding member of the Growth VDR team.",
+        ],
+      },
+      {
+        role: "Product Advocate",
+        dates: "Aug 2022 — Jan 2023",
+        points: [
+          "Advocated for Vercel as a platform for prospects.",
+          "Managed contacts, cases, and opportunities within Salesforce.",
+          "Accelerated product adoption by offering support and education.",
+          "Kicked off sales cycles by identifying and qualifying future customers.",
+          "Helped users, prospects, and community members succeed by being engaging and responsive.",
         ],
       },
     ],
