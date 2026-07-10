@@ -97,7 +97,7 @@ const skillGroups = [
   },
   {
     label: "Dev tools",
-    items: ["GitHub", "Vercel", "Netlify", "Heroku", "Postman", "pgAdmin", "Replit", "Supabase"],
+    items: ["GitHub", "Vercel", "Claude Code", "Postman", "pgAdmin", "Replit", "Supabase"],
   },
 ];
 
