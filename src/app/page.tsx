@@ -46,11 +46,11 @@ const skillGroups = [
   },
   {
     label: "Technical",
-    items: ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "SQL", "HTML", "CSS", "Git", "PostgreSQL", "Supabase"],
+    items: ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "SQL", "HTML", "CSS", "Git", "PostgreSQL"],
   },
   {
     label: "Dev tools",
-    items: ["GitHub", "Vercel", "Netlify", "Heroku", "Postman", "pgAdmin", "Replit"],
+    items: ["GitHub", "Vercel", "Netlify", "Heroku", "Postman", "pgAdmin", "Replit", "Supabase"],
   },
 ];
 
