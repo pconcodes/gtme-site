@@ -45,16 +45,20 @@ const experience = [
     ],
   },
   {
-    company: "BloomTech (Lambda School)",
+    company: "BloomTech (FKA Lambda School)",
     dates: "Aug 2021 — May 2022",
     roles: [
       {
         role: "Full-Stack Web Development",
         dates: "Aug 2021 — May 2022",
         points: [
-          "Built with JavaScript, React, Node.js and SQL (plus HTML/CSS).",
-          "Git workflow, Agile development, client & server testing.",
-          "Architected PostgreSQL databases.",
+          "Approached coding challenges using pair programming.",
+          "Gained hands-on experience with client and server testing.",
+          "Utilized agile software development and Git workflow on all projects.",
+          "Completed team projects that mimicked real product development lifecycle.",
+          "Program included Computer Science Fundamentals, focusing on algorithms, and data structures.",
+          "Studying Full Stack Web Development with a focus on HTML, CSS, JavaScript, React, Node.js, and SQL.",
+          "Wrote production-ready code using ReactJS, Redux, and CSS on the frontend and NodeJS on the backend to build applications.",
         ],
       },
     ],
