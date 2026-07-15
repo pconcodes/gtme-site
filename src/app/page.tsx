@@ -76,7 +76,7 @@ const skillGroups = [
   },
   {
     label: "Dev tools",
-    items: ["GitHub", "Vercel", "Claude Code", "Postman", "pgAdmin", "Replit"],
+    items: ["GitHub", "Vercel", "Claude Code", "Postman", "Render", "Zapier", "n8n", "Dust"],
   },
 ];
 
@@ -124,7 +124,7 @@ export default function Home() {
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-text-muted">
-                Certified full-stack developer with 4+ years in B2B SaaS Sales (ex-Vercel).
+                FOR HIRE: Certified full-stack developer with 4+ years in B2B SaaS Sales.
               </p>
 
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">

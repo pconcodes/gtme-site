@@ -1,14 +1,11 @@
 import Link from "next/link";
 
 export function SiteFooter() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-border-soft">
       <div className="mx-auto max-w-6xl px-6 py-8">
-        <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-text-faint">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-text-faint">
           <span>Portfolio — GTM systems</span>
-          <span>DWG NO. GTME-01</span>
         </div>
 
         <div className="mt-4 flex items-center gap-2.5">
@@ -33,7 +30,7 @@ export function SiteFooter() {
             </div>
           </div>
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-widest text-text-faint">Channels</p>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-text-faint">Socials</p>
             <div className="mt-2 flex flex-col gap-1.5 text-sm text-text-muted">
               <a
                 href="https://www.linkedin.com/in/peter-conley/"
@@ -54,9 +51,8 @@ export function SiteFooter() {
             </div>
           </div>
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-widest text-text-faint">Rev</p>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-text-faint">Built with</p>
             <div className="mt-2 text-sm text-text-muted">
-              <p>{year}</p>
               <p className="text-text-faint">Next.js · Vercel</p>
             </div>
           </div>
