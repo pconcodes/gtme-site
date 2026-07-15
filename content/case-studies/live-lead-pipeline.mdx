@@ -7,7 +7,7 @@ result: "You already saw it work: submitting the form enriched your details and 
 order: 1
 featured: true
 illustrative: false
-stack: ["Next.js", "HubSpot", "Clay", "Slack", "Gmail", "Vercel"]
+stack: ["Next.js", "HubSpot", "n8n", "Clay", "Slack", "Gmail", "Vercel"]
 ---
 
 ## Problem
@@ -33,23 +33,26 @@ on its own, so one failure never takes down the rest.
 - **Enrich instantly.** The moment you submit, your email is parsed for its
   domain, work-vs-personal signal, and likely company domain — fast enough to
   show back to you on the confirmation.
-- **Enrich deeply.** The lead is handed to a Clay webhook for the heavier
-  firmographic enrichment and routing that would slow down a synchronous
-  response.
 - **Push to the CRM.** The contact is upserted into HubSpot — created, or
   updated by email if it already exists — so the record is always clean.
 - **Notify.** A Slack message and an email both fire so I see the lead the
   instant it lands, whichever I'm looking at.
+- **Enrich further (in progress).** A HubSpot workflow will trigger an n8n
+  hook that calls Clay for deeper firmographic enrichment, landing straight
+  back on the CRM record. Not live yet — today the record lands clean and
+  I enrich it by hand.
 
 ```text
 Form submit → Next.js API route
             → validate + honeypot
             → instant email enrichment  ┐
-            → Clay (deep enrichment)     ├─ run in parallel
-            → HubSpot (upsert contact)   │
+            → HubSpot (upsert contact)   ├─ run in parallel
             → Slack (notify me)          │
             → Email (notify me)          ┘
             → live status back to you
+
+HubSpot (new/updated contact) → n8n hook → Clay enrichment → back to HubSpot
+  [planned — not wired up yet]
 ```
 
 Each integration is wired behind an environment variable, so the system is

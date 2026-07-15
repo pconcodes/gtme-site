@@ -118,7 +118,7 @@ export function LeadForm() {
   );
 }
 
-function integrationToStatus(s: LeadResult["integrations"]["clay"]): NodeStatus {
+function integrationToStatus(s: LeadResult["integrations"]["hubspot"]): NodeStatus {
   return s;
 }
 
@@ -133,7 +133,6 @@ function SuccessPanel({
 
   const nodes = [
     { id: "in", tag: "IN", label: "Your details", sub: "Submitted just now", status: "sent" as NodeStatus },
-    { id: "enrich", tag: "ENRICH", label: "Clay lookup", sub: "Deep enrichment", status: integrationToStatus(integrations.clay) },
     { id: "crm", tag: "CRM", label: "HubSpot record", sub: "Contact created/updated", status: integrationToStatus(integrations.hubspot) },
     { id: "slack", tag: "SLACK", label: "Slack ping", sub: "Notifies Peter", status: integrationToStatus(integrations.slack) },
     { id: "email", tag: "EMAIL", label: "Email alert", sub: "Notifies Peter", status: integrationToStatus(integrations.email) },

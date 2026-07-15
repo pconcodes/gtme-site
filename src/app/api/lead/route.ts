@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { parseLead } from "@/lib/leads/validate";
-import { deriveEnrichment, sendToClay } from "@/lib/leads/enrich";
+import { deriveEnrichment } from "@/lib/leads/enrich";
 import { pushToHubSpot } from "@/lib/leads/hubspot";
 import { pingSlack } from "@/lib/leads/slack";
 import { emailLead } from "@/lib/leads/email";
@@ -38,7 +38,6 @@ export async function POST(req: Request) {
       ok: true,
       enrichment: { emailDomain: "", isWorkEmail: false, companyDomain: null },
       integrations: {
-        clay: "skipped",
         hubspot: "skipped",
         slack: "skipped",
         email: "skipped",
@@ -56,8 +55,7 @@ export async function POST(req: Request) {
   const enrichment = deriveEnrichment(lead);
 
   // Run integrations in parallel; each degrades gracefully on its own.
-  const [clay, hubspot, slack, email] = await Promise.all([
-    sendToClay(lead, enrichment),
+  const [hubspot, slack, email] = await Promise.all([
     pushToHubSpot(lead),
     pingSlack(lead, enrichment),
     emailLead(lead, enrichment),
@@ -66,6 +64,6 @@ export async function POST(req: Request) {
   return NextResponse.json<LeadResult>({
     ok: true,
     enrichment,
-    integrations: { clay, hubspot, slack, email },
+    integrations: { hubspot, slack, email },
   });
 }

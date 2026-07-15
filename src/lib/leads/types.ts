@@ -19,7 +19,6 @@ export interface LeadResult {
   ok: true;
   enrichment: Enrichment;
   integrations: {
-    clay: IntegrationStatus;
     hubspot: IntegrationStatus;
     slack: IntegrationStatus;
     email: IntegrationStatus;
