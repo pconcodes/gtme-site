@@ -47,7 +47,7 @@ export default function OpengraphImage() {
               letterSpacing: -2,
             }}
           >
-            SaaS Sales Rep turned GTM Engineer
+            Sales Rep turned GTM Engineer
           </div>
           <div style={{ display: "flex", fontSize: 34, color: "#8a8d94" }}>
             Top-performing SDR &amp; AE, now a GTM Engineer.

@@ -6,7 +6,6 @@ import {
   GridBackdrop,
   PipelineDiagram,
   SheetKicker,
-  SheetTag,
 } from "@/components/blueprint";
 
 const experience = [
@@ -17,22 +16,14 @@ const experience = [
       {
         role: "SMB Account Executive",
         dates: "Nov 2024 — Jun 2026",
-        points: [
-          "Owned 25–50 deals at a time.",
-          "Created product sequences for all inbound leads in Apollo.",
-          "Architected pipeline-forecasting process for the SMB segment.",
-          "Built a local app with Claude Code to automate prospecting & outreach for EOL OSS GitHub repos.",
-        ],
+        summary:
+          "Managed a high-volume pipeline of 25–50 concurrent opportunities while driving the full sales cycle for SMB customers. Beyond quota-carrying responsibilities, I designed and implemented operational improvements across the sales organization, including product-based inbound sequencing in Apollo and a new pipeline forecasting process for the SMB segment. I also built an internal application using Claude Code to automate prospecting and outbound outreach for end-of-life open-source GitHub repositories, demonstrating a strong blend of sales execution and technical problem-solving.",
       },
       {
         role: "Founding SDR",
         dates: "Feb 2024 — Oct 2024",
-        points: [
-          "Architected the SDR to AE handoff process.",
-          "Synthesized all SDR reports and dashboards.",
-          "Architected core Notion documentation for the sales team.",
-          "Built Notion documentation & analytics dashboards for the SDR team.",
-        ],
+        summary:
+          "As a founding member of the SDR team, I helped establish the operational foundation for the organization's outbound motion. I designed the SDR-to-AE handoff process, developed the team's reporting and analytics infrastructure, and created the core Notion documentation that standardized sales processes and onboarding. These systems improved visibility into team performance while providing a scalable knowledge base for the growing sales organization.",
       },
     ],
   },
@@ -43,34 +34,20 @@ const experience = [
       {
         role: "Sales Development Representative",
         dates: "Sep 2023 — Nov 2023",
-        points: [
-          "108% quota attainment.",
-          "Top Performance by an SDR (Q2 2023).",
-          "Spearheaded copywriting for outreach campaign.",
-          "2nd-highest monthly quota attainment in team history.",
-        ],
+        summary:
+          "Consistently exceeded quota while quickly establishing myself as one of the team's top-performing SDRs, achieving 108% quota attainment, earning Top Performer recognition, and delivering the second-highest monthly quota attainment in team history. In addition to outbound prospecting, I spearheaded copywriting for sales outreach campaigns, helping improve messaging and engagement across the team.",
       },
       {
         role: "Growth / Inbound SDR",
         dates: "Jan 2023 — Aug 2023",
-        points: [
-          "127% quota attainment.",
-          "Sequenced existing contacts for product education and upgrades.",
-          "Created workflows and Outreach sequences for new Growth PA team.",
-          "Engaged existing Hobby and Pro accounts for additional product needs.",
-          "Contributed to a 50% QoQ lift in our Enterprise funnel as a founding member of the Growth VDR team.",
-        ],
+        summary:
+          "As a founding member of the Growth VDR team, I focused on expanding revenue within the existing customer base through product education, upsell, and expansion campaigns. I designed Outreach sequences and operational workflows for the new team, segmented and nurtured existing contacts, and engaged Hobby and Pro customers to identify additional product needs. These efforts contributed to a 50% quarter-over-quarter increase in the Enterprise sales funnel while consistently exceeding quota at 127%.",
       },
       {
         role: "Product Advocate",
         dates: "Aug 2022 — Jan 2023",
-        points: [
-          "Advocated for Vercel as a platform for prospects.",
-          "Managed contacts, cases, and opportunities within Salesforce.",
-          "Accelerated product adoption by offering support and education.",
-          "Kicked off sales cycles by identifying and qualifying future customers.",
-          "Helped users, prospects, and community members succeed by being engaging and responsive.",
-        ],
+        summary:
+          "Served as the first point of contact for prospective customers by educating developers and technical buyers on the Vercel platform and identifying qualified sales opportunities. I managed customer interactions, cases, and opportunities within Salesforce while helping accelerate product adoption through technical guidance and support. This role provided a strong foundation in customer engagement, product education, and qualifying future pipeline for the sales organization.",
       },
     ],
   },
@@ -81,15 +58,8 @@ const experience = [
       {
         role: "Full-Stack Web Development",
         dates: "Aug 2021 — May 2022",
-        points: [
-          "Approached coding challenges using pair programming.",
-          "Gained hands-on experience with client and server testing.",
-          "Utilized agile software development and Git workflow on all projects.",
-          "Completed team projects that mimicked real product development lifecycle.",
-          "Program included Computer Science Fundamentals, focusing on algorithms, and data structures.",
-          "Studying Full Stack Web Development with a focus on HTML, CSS, JavaScript, React, Node.js, and SQL.",
-          "Wrote production-ready code using ReactJS, Redux, and CSS on the frontend and NodeJS on the backend to build applications.",
-        ],
+        summary:
+          "Completed an immersive full-stack web development program focused on building production-ready applications using modern JavaScript technologies, including React, Redux, Node.js, SQL, HTML, and CSS. Developed a strong foundation in computer science fundamentals such as algorithms and data structures while gaining hands-on experience with frontend and backend development, client and server testing, and collaborative software engineering practices. Worked on agile, team-based projects using Git workflows, pair programming, and iterative product development processes that mirrored real-world engineering environments.",
       },
     ],
   },
@@ -106,7 +76,7 @@ const skillGroups = [
   },
   {
     label: "Dev tools",
-    items: ["GitHub", "Vercel", "Claude Code", "Postman", "pgAdmin", "Replit", "Supabase"],
+    items: ["GitHub", "Vercel", "Claude Code", "Postman", "pgAdmin", "Replit"],
   },
 ];
 
@@ -119,8 +89,6 @@ const pipelinePreview = [
 ];
 
 export default function Home() {
-  const year = new Date().getFullYear();
-
   return (
     <>
       {/* Hero */}
@@ -151,12 +119,12 @@ export default function Home() {
               </Link>
 
               <h1 className="mt-8 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-5xl font-semibold leading-[1.05] tracking-tight text-transparent sm:text-7xl">
-                SaaS Sales Rep turned
+                Sales Rep turned
                 <br />GTM Engineer
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-text-muted">
-                Certified full-stack developer with 4+ years in SaaS Sales (ex-Vercel).
+                Certified full-stack developer with 4+ years in B2B SaaS Sales (ex-Vercel).
               </p>
 
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -173,15 +141,7 @@ export default function Home() {
                   See how this site works
                 </Link>
               </div>
-
-              <div className="mx-auto mt-10 max-w-sm">
-                <DimensionRule left="00" right="12" />
-                <p className="mt-2 font-mono text-[10px] tracking-widest text-text-faint">
-                  108% · 127% · 205% — QUOTA ATTAINMENT, 2022–2026
-                </p>
-              </div>
             </div>
-            <SheetTag sheet="SHEET 00 — profile" meta={`SCALE 1:1 · REV ${year}`} />
           </div>
         </div>
       </section>
@@ -215,14 +175,7 @@ export default function Home() {
                         <span className="font-mono text-[11px] text-text-faint">{r.dates}</span>
                       )}
                     </div>
-                    <ul className="mt-2 space-y-2">
-                      {r.points.map((p) => (
-                        <li key={p} className="flex gap-3 text-sm leading-6 text-text-muted">
-                          <span className="mt-[3px] shrink-0 font-mono text-[10px] text-accent">+</span>
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="mt-2 text-sm leading-6 text-text-muted">{r.summary}</p>
                   </div>
                 ))}
               </div>
