@@ -28,11 +28,14 @@ When you submit the form, the request hits a Next.js API route that orchestrates
 the whole pipeline. Every integration runs in parallel and degrades gracefully
 on its own, so one failure never takes down the rest.
 
-- **Validate + de-bot.** The route validates the input and silently drops bots
-  via a hidden honeypot field — no CAPTCHA friction for real people.
+- **Validate + de-bot.** The form only asks for two things — work email and
+  LinkedIn URL — and both are required. Personal email domains (Gmail, Yahoo,
+  etc.) are rejected outright, so junk never reaches the CRM. Bots are
+  silently dropped via a hidden honeypot field — no CAPTCHA friction for real
+  people.
 - **Enrich instantly.** The moment you submit, your email is parsed for its
-  domain, work-vs-personal signal, and likely company domain — fast enough to
-  show back to you on the confirmation.
+  domain and likely company domain — fast enough to show back to you on the
+  confirmation.
 - **Push to the CRM.** The contact is upserted into HubSpot — created, or
   updated by email if it already exists — so the record is always clean.
 - **Notify.** A Slack message and an email both fire so I see the lead the

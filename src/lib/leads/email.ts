@@ -37,23 +37,16 @@ export async function emailLead(
     return "skipped";
   }
 
-  const workEmailLine = enrichment.isWorkEmail
-    ? `yes${enrichment.companyDomain ? ` (${enrichment.companyDomain})` : ""}`
-    : "no";
-
   try {
     await client.sendMail({
       from: `"GTME portfolio" <${user}>`,
       to,
       replyTo: lead.email,
-      subject: `New lead: ${lead.name} @ ${lead.company}`,
+      subject: `New lead: ${lead.email}`,
       text: [
-        `Name: ${lead.name}`,
-        `Email: ${lead.email}`,
-        `Company: ${lead.company}`,
-        `Work email: ${workEmailLine}`,
-        "",
-        `Message:\n${lead.message}`,
+        `Work email: ${lead.email}`,
+        `LinkedIn: ${lead.linkedinUrl}`,
+        `Company domain: ${enrichment.companyDomain ?? "—"}`,
       ].join("\n"),
     });
     return "sent";

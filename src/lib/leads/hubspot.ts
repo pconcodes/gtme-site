@@ -4,10 +4,10 @@ import type { IntegrationStatus, Lead } from "./types";
  * Upsert the lead as a HubSpot contact via the CRM v3 API. No-ops (returns
  * "skipped") without HUBSPOT_PRIVATE_APP_TOKEN.
  *
- * Note: only standard contact properties are sent (email, first/last name,
- * company). The free-text `message` is intentionally left out — it isn't a
- * default contact property and would 400. Route it to a custom property or a
- * note/engagement once you've created one in HubSpot.
+ * Note: only the standard `email` property is sent. `linkedinUrl` isn't a
+ * default contact property and would 400 — create a custom "linkedin_url"
+ * property in HubSpot to start capturing it here too. Either way it still
+ * reaches Peter via the Slack ping and email notification.
  */
 export async function pushToHubSpot(lead: Lead): Promise<IntegrationStatus> {
   const token = process.env.HUBSPOT_PRIVATE_APP_TOKEN;
@@ -19,12 +19,8 @@ export async function pushToHubSpot(lead: Lead): Promise<IntegrationStatus> {
     return "skipped";
   }
 
-  const [firstname, ...rest] = lead.name.split(" ");
   const properties: Record<string, string> = {
     email: lead.email,
-    firstname,
-    lastname: rest.join(" "),
-    company: lead.company,
   };
 
   try {

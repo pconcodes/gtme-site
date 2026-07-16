@@ -19,13 +19,9 @@ export async function pingSlack(
 
   const text = [
     ":inbox_tray: *New lead from the portfolio site*",
-    `*Name:* ${lead.name}`,
-    `*Email:* ${lead.email}`,
-    `*Company:* ${lead.company}`,
-    `*Work email:* ${enrichment.isWorkEmail ? "yes" : "no"}${
-      enrichment.companyDomain ? ` (${enrichment.companyDomain})` : ""
-    }`,
-    `*Message:* ${lead.message}`,
+    `*Work email:* ${lead.email}`,
+    `*LinkedIn:* ${lead.linkedinUrl}`,
+    `*Company domain:* ${enrichment.companyDomain ?? "—"}`,
   ].join("\n");
 
   try {

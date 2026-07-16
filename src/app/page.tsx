@@ -81,7 +81,7 @@ const skillGroups = [
 ];
 
 const pipelinePreview = [
-  { id: "in", tag: "IN", label: "Form submit", sub: "Name, email, company", status: "planned" as const },
+  { id: "in", tag: "IN", label: "Form submit", sub: "Work email, LinkedIn URL", status: "planned" as const },
   { id: "crm", tag: "CRM", label: "HubSpot record", sub: "Contact created/updated", status: "planned" as const },
   { id: "enrich", tag: "N8N + CLAY", label: "Enrich HubSpot record", sub: "Coming soon", status: "planned" as const },
   { id: "slack", tag: "SLACK", label: "Slack ping", sub: "Notifies Peter", status: "planned" as const },

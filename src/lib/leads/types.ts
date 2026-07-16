@@ -1,8 +1,6 @@
 export interface Lead {
-  name: string;
   email: string;
-  company: string;
-  message: string;
+  linkedinUrl: string;
 }
 
 export interface Enrichment {

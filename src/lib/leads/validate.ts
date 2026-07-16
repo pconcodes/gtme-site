@@ -21,6 +21,7 @@ export function isFreeEmailDomain(domain: string): boolean {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const LINKEDIN_RE = /^https?:\/\/([\w-]+\.)?linkedin\.com\/.+/i;
 
 export interface ParsedForm {
   lead?: Lead;
@@ -39,20 +40,24 @@ export function parseLead(body: unknown): ParsedForm {
   // Honeypot: a hidden field real users never see or fill.
   const isBot = str(data.website) !== "";
 
-  const name = str(data.name);
   const email = str(data.email).toLowerCase();
-  const company = str(data.company);
-  const message = str(data.message);
+  const linkedinUrl = str(data.linkedinUrl);
 
   const errors: string[] = [];
-  if (!name) errors.push("Name is required.");
-  if (!email) errors.push("Email is required.");
-  else if (!EMAIL_RE.test(email)) errors.push("Enter a valid email address.");
-  if (!company) errors.push("Company is required.");
-  if (!message) errors.push("Message is required.");
-  if (message.length > 4000) errors.push("Message is too long.");
+  if (!email) {
+    errors.push("Work email is required.");
+  } else if (!EMAIL_RE.test(email)) {
+    errors.push("Enter a valid email address.");
+  } else if (isFreeEmailDomain(email.split("@")[1] ?? "")) {
+    errors.push("Use your work email — personal addresses (Gmail, Yahoo, etc.) aren't accepted.");
+  }
 
-  const lead =
-    errors.length === 0 ? { name, email, company, message } : undefined;
+  if (!linkedinUrl) {
+    errors.push("LinkedIn profile URL is required.");
+  } else if (!LINKEDIN_RE.test(linkedinUrl)) {
+    errors.push("Enter a valid LinkedIn profile URL.");
+  }
+
+  const lead = errors.length === 0 ? { email, linkedinUrl } : undefined;
   return { lead, errors, isBot };
 }

@@ -66,33 +66,18 @@ export function LeadForm() {
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="name" className={labelClass}>
-            Name
-          </label>
-          <input id="name" name="name" type="text" required className={inputClass} placeholder="Jane Rivera" />
-        </div>
-        <div>
-          <label htmlFor="email" className={labelClass}>
-            Work email
-          </label>
-          <input id="email" name="email" type="email" required className={inputClass} placeholder="jane@company.com" />
-        </div>
+      <div>
+        <label htmlFor="email" className={labelClass}>
+          Work email
+        </label>
+        <input id="email" name="email" type="email" required className={inputClass} placeholder="jane@company.com" />
       </div>
 
       <div>
-        <label htmlFor="company" className={labelClass}>
-          Company
+        <label htmlFor="linkedinUrl" className={labelClass}>
+          LinkedIn profile URL
         </label>
-        <input id="company" name="company" type="text" required className={inputClass} placeholder="Acme Inc." />
-      </div>
-
-      <div>
-        <label htmlFor="message" className={labelClass}>
-          Message
-        </label>
-        <textarea id="message" name="message" required rows={4} className={inputClass} placeholder="What are you hiring for / what's the GTM pain?" />
+        <input id="linkedinUrl" name="linkedinUrl" type="url" required className={inputClass} placeholder="https://linkedin.com/in/janedoe" />
       </div>
 
       {status === "error" && errors.length > 0 && (
