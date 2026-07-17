@@ -76,7 +76,7 @@ const skillGroups = [
   },
   {
     label: "Dev tools",
-    items: ["GitHub", "Vercel", "Claude Code", "Postman", "Render", "Zapier", "n8n"],
+    items: ["GitHub", "Vercel", "Claude Code", "Postman", "Render", "Supabase", "Zapier", "n8n"],
   },
 ];
 
