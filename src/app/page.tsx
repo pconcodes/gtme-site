@@ -14,7 +14,7 @@ const experience = [
     dates: "Feb 2024 — Jun 2026",
     roles: [
       {
-        role: "SMB Account Executive",
+        role: "Founding SMB Account Executive",
         dates: "Nov 2024 — Jun 2026",
         summary:
           "Managed a high-volume pipeline of 25–50 concurrent opportunities while driving the full sales cycle for SMB customers. Beyond quota-carrying responsibilities, I designed and implemented operational improvements across the sales organization, including product-based inbound sequencing in Apollo and a new pipeline forecasting process for the SMB segment. I also built an internal application using Claude Code to automate prospecting and outbound outreach for end-of-life open-source GitHub repositories, demonstrating a strong blend of sales execution and technical problem-solving.",
@@ -38,7 +38,7 @@ const experience = [
           "Consistently exceeded quota while quickly establishing myself as one of the team's top-performing SDRs, achieving 108% quota attainment, earning Top Performer recognition, and delivering the second-highest monthly quota attainment in team history. In addition to outbound prospecting, I spearheaded copywriting for sales outreach campaigns, helping improve messaging and engagement across the team.",
       },
       {
-        role: "Growth / Inbound SDR",
+        role: "Growth SDR",
         dates: "Jan 2023 — Aug 2023",
         summary:
           "As a founding member of the Growth VDR team, I focused on expanding revenue within the existing customer base through product education, upsell, and expansion campaigns. I designed Outreach sequences and operational workflows for the new team, segmented and nurtured existing contacts, and engaged Hobby and Pro customers to identify additional product needs. These efforts contributed to a 50% quarter-over-quarter increase in the Enterprise sales funnel while consistently exceeding quota at 127%.",
@@ -76,7 +76,7 @@ const skillGroups = [
   },
   {
     label: "Dev tools",
-    items: ["GitHub", "Vercel", "Claude Code", "Postman", "Render", "Supabase", "Zapier", "n8n"],
+    items: ["GitHub", "Vercel", "Claude Code", "Postman", "Render", "Supabase", "n8n"],
   },
 ];
 
@@ -132,7 +132,7 @@ export default function Home() {
                   href="/contact"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-[2px] bg-accent px-7 font-mono text-sm font-medium uppercase tracking-wide text-ink transition-colors hover:bg-accent-soft"
                 >
-                  Trigger the pipeline →
+                  Get in touch →
                 </Link>
                 <Link
                   href="/case-studies"
@@ -259,7 +259,7 @@ export default function Home() {
           href="/contact"
           className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-[2px] bg-accent px-8 font-mono text-sm uppercase tracking-wide text-ink transition-colors hover:bg-accent-soft"
         >
-          Trigger the pipeline →
+          Get in touch →
         </Link>
       </section>
     </>
