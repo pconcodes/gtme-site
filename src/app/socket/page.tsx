@@ -202,16 +202,15 @@ export default function SocketPitchPage() {
             FOR SOCKET&apos;S SALES LEADERSHIP
           </p>
           <h1 className="mt-8 text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl">
-            A GTM Machine
+            GTM Engineering
             <br />
-            <span style={gradientText}>at AI Speed</span>
+            <span style={gradientText}>for Socket</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8" style={{ color: c.muted }}>
             Socket blocks malicious packages before they reach your code. I block
             manual busywork before it reaches your AEs.{" "}
             <strong style={{ color: c.text }}>
-              This page is my pitch for Socket&apos;s first dedicated GTM Engineer
-              — and the site it lives on is the working proof.
+              This page is my pitch for Socket&apos;s first dedicated GTM Engineer.
             </strong>
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -374,7 +373,7 @@ export default function SocketPitchPage() {
       {/* Objections */}
       <section className="mx-auto max-w-4xl px-6 py-20" style={{ borderTop: `1px solid ${c.borderSoft}` }}>
         <Kicker>05 / The objections, handled</Kicker>
-        <SectionTitle>Ask the hard questions. Here are mine.</SectionTitle>
+        <SectionTitle>Handling objections</SectionTitle>
         <div className="mt-10 space-y-4">
           {objections.map((o) => (
             <Card key={o.q}>
