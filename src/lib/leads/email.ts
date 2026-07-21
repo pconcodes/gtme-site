@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import type { Enrichment, IntegrationStatus, Lead } from "./types";
+import { LEAD_SOURCE_LABELS, type Enrichment, type IntegrationStatus, type Lead } from "./types";
 
 let transporter: ReturnType<typeof nodemailer.createTransport> | null = null;
 
@@ -42,15 +42,16 @@ export async function emailLead(
       from: `"GTME portfolio" <${user}>`,
       to,
       replyTo: lead.email,
-      subject:
-        lead.source === "socket"
-          ? `New Socket lead: ${lead.email}`
-          : `New lead: ${lead.email}`,
+      subject: lead.source
+        ? `New ${LEAD_SOURCE_LABELS[lead.source]} lead: ${lead.email}`
+        : `New lead: ${lead.email}`,
       text: [
         `Work email: ${lead.email}`,
         `LinkedIn: ${lead.linkedinUrl || "—"}`,
         `Company domain: ${enrichment.companyDomain ?? "—"}`,
-        ...(lead.source === "socket" ? ["Source: Socket pitch page contact form"] : []),
+        ...(lead.source
+          ? [`Source: ${LEAD_SOURCE_LABELS[lead.source]} pitch page contact form`]
+          : []),
       ].join("\n"),
     });
     return "sent";

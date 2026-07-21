@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import type { IntegrationStatus, Lead } from "./types";
+import { LEAD_SOURCE_LABELS, type IntegrationStatus, type Lead } from "./types";
 
 const RESUME_URL = "https://gtm-engineer.dev/resume.pdf";
 const CALENDLY_URL = "https://calendly.com/peter-david-conley/lets-talk";
@@ -35,17 +35,17 @@ export async function sendAutoReply(lead: Lead): Promise<IntegrationStatus> {
     return "skipped";
   }
 
-  const isSocket = lead.source === "socket";
+  const sourceLabel = lead.source ? LEAD_SOURCE_LABELS[lead.source] : null;
 
   try {
     await client.sendMail({
       from: `"Peter Conley" <${user}>`,
       to: lead.email,
       replyTo: user,
-      subject: isSocket
-        ? "GTM Engineering for Socket — thanks for reaching out"
+      subject: sourceLabel
+        ? `GTM Engineering for ${sourceLabel} — thanks for reaching out`
         : "Thanks for triggering the pipeline",
-      text: isSocket
+      text: sourceLabel
         ? "How can I help?\n\n— Peter"
         : [
             "Thanks for reaching out through the live pipeline — you just watched",

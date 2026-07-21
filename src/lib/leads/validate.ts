@@ -1,4 +1,4 @@
-import type { Lead } from "./types";
+import { LEAD_SOURCE_LABELS, type Lead, type LeadSource } from "./types";
 
 const FREE_EMAIL_DOMAINS = new Set([
   "gmail.com",
@@ -42,7 +42,9 @@ export function parseLead(body: unknown): ParsedForm {
 
   const email = str(data.email).toLowerCase();
   const linkedinUrl = str(data.linkedinUrl);
-  const source = str(data.source) === "socket" ? ("socket" as const) : undefined;
+  const rawSource = str(data.source);
+  const source: LeadSource | undefined =
+    rawSource in LEAD_SOURCE_LABELS ? (rawSource as LeadSource) : undefined;
 
   const errors: string[] = [];
   if (!email) {
@@ -53,9 +55,9 @@ export function parseLead(body: unknown): ParsedForm {
     errors.push("Use your work email — personal addresses (Gmail, Yahoo, etc.) aren't accepted.");
   }
 
-  // The Socket pitch form only asks for an email; LinkedIn stays required
-  // everywhere else.
-  if (source !== "socket") {
+  // Pitch-page forms only ask for an email; LinkedIn stays required on the
+  // main site form.
+  if (!source) {
     if (!linkedinUrl) {
       errors.push("LinkedIn profile URL is required.");
     } else if (!LINKEDIN_RE.test(linkedinUrl)) {

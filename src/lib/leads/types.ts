@@ -1,8 +1,16 @@
+export type LeadSource = "socket" | "render";
+
+/** Display names for pitch-page sources, used in notification/auto-reply copy. */
+export const LEAD_SOURCE_LABELS: Record<LeadSource, string> = {
+  socket: "Socket",
+  render: "Render",
+};
+
 export interface Lead {
   email: string;
   linkedinUrl: string;
-  /** Which form captured the lead; "socket" = the /socket pitch-page form. */
-  source?: "socket";
+  /** Which form captured the lead; set for pitch-page forms (e.g. /socket). */
+  source?: LeadSource;
 }
 
 export interface Enrichment {
