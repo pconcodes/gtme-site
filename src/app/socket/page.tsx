@@ -41,7 +41,7 @@ const gradientText = {
 const CALENDLY_URL = "https://calendly.com/peter-david-conley/lets-talk";
 const RESUME_URL = "/resume.pdf";
 const SCALING_VIDEO_URL = "https://youtu.be/f1f-J8z8oSg?si=5s-ABP6OMJM8jctj&t=93";
-const FEROSS_VIDEO_URL = "https://www.youtube.com/watch?v=9zPos04KL5c&t=723s";
+const FEROSS_VIDEO_URL = "https://youtu.be/9zPos04KL5c?si=YK2e_Rpi04TqXnTW&t=898";
 
 const whyMe = [
   {
@@ -92,12 +92,12 @@ const objections = [
   },
   {
     q: "“You don't have the tool knowledge or skill set.”",
-    a: "I'm building it in real time. The site you're on is a live HubSpot + Clay + n8n pipeline I built and shipped — submit the contact form and watch it run. I'm also starting the Clay Austin Meetup, and I'm running my own job search as a closed/won deal: 40 target companies in a Clay table, enriched and tracked in HubSpot.",
+    a: "I'm building it in real time. The site you're on is a live HubSpot + Clay + n8n pipeline I built and shipped.",
     link: { href: "/case-studies/live-lead-pipeline", label: "See the live pipeline case study →" },
   },
   {
     q: "“We're a fast-moving startup — people wear a lot of hats. You may not be used to our pace.”",
-    a: "At Vercel I had two direct managers, worked across two orgs, and held three different titles — at the same time. At HeroDevs I was both the founding SDR and the founding SMB AE. Wearing multiple hats isn't a risk for me; it's my resume.",
+    a: "At Vercel I had two direct managers, worked across two orgs, and held three different titles over the period of 17 months. At HeroDevs I was both the founding SDR and the founding SMB AE. Wearing multiple hats isn't a risk for me; it's my resume.",
   },
 ];
 
@@ -408,10 +408,6 @@ export default function SocketPitchPage() {
           <br />
           <span style={gradientText}>at AI speed.</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-xl leading-7" style={{ color: c.muted }}>
-          30 minutes. I&apos;ll bring a working demo of the pipeline on this site
-          and a concrete plan for the first 90 days.
-        </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <PillLink href={CALENDLY_URL}>Book 30 minutes</PillLink>
           <PillLink href="/contact" variant="outline">
