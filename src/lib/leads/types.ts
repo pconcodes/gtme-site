@@ -21,6 +21,7 @@ export interface LeadResult {
     slack: IntegrationStatus;
     email: IntegrationStatus;
     n8n: IntegrationStatus;
+    autoreply: IntegrationStatus;
   };
 }
 
