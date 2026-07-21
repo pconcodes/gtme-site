@@ -35,26 +35,32 @@ export async function sendAutoReply(lead: Lead): Promise<IntegrationStatus> {
     return "skipped";
   }
 
+  const isSocket = lead.source === "socket";
+
   try {
     await client.sendMail({
       from: `"Peter Conley" <${user}>`,
       to: lead.email,
       replyTo: user,
-      subject: "Thanks for triggering the pipeline",
-      text: [
-        "Thanks for reaching out through the live pipeline — you just watched",
-        "the exact system I'd build for your team.",
-        "",
-        `Resume: ${RESUME_URL}`,
-        "",
-        `If you want to talk, grab time here: ${CALENDLY_URL}`,
-        "",
-        "Two quick questions so I can be useful on the call:",
-        "1. Do you already have a GTM Engineer or GTME team in place?",
-        "2. What sparked your interest in reaching out?",
-        "",
-        "— Peter",
-      ].join("\n"),
+      subject: isSocket
+        ? "GTM Engineering for Socket — thanks for reaching out"
+        : "Thanks for triggering the pipeline",
+      text: isSocket
+        ? "How can I help?\n\n— Peter"
+        : [
+            "Thanks for reaching out through the live pipeline — you just watched",
+            "the exact system I'd build for your team.",
+            "",
+            `Resume: ${RESUME_URL}`,
+            "",
+            `If you want to talk, grab time here: ${CALENDLY_URL}`,
+            "",
+            "Two quick questions so I can be useful on the call:",
+            "1. Do you already have a GTM Engineer or GTME team in place?",
+            "2. What sparked your interest in reaching out?",
+            "",
+            "— Peter",
+          ].join("\n"),
     });
     return "sent";
   } catch (err) {

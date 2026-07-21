@@ -58,6 +58,8 @@ export function parseLead(body: unknown): ParsedForm {
     errors.push("Enter a valid LinkedIn profile URL.");
   }
 
-  const lead = errors.length === 0 ? { email, linkedinUrl } : undefined;
+  const source = str(data.source) === "socket" ? ("socket" as const) : undefined;
+
+  const lead = errors.length === 0 ? { email, linkedinUrl, source } : undefined;
   return { lead, errors, isBot };
 }

@@ -42,11 +42,15 @@ export async function emailLead(
       from: `"GTME portfolio" <${user}>`,
       to,
       replyTo: lead.email,
-      subject: `New lead: ${lead.email}`,
+      subject:
+        lead.source === "socket"
+          ? `New Socket lead: ${lead.email}`
+          : `New lead: ${lead.email}`,
       text: [
         `Work email: ${lead.email}`,
         `LinkedIn: ${lead.linkedinUrl}`,
         `Company domain: ${enrichment.companyDomain ?? "—"}`,
+        ...(lead.source === "socket" ? ["Source: Socket pitch page contact form"] : []),
       ].join("\n"),
     });
     return "sent";

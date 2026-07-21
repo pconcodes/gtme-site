@@ -409,7 +409,7 @@ export default function SocketPitchPage() {
         </h2>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <PillLink href={CALENDLY_URL}>Book 30 minutes</PillLink>
-          <PillLink href="/contact" variant="outline">
+          <PillLink href="/socket/contact" variant="outline">
             Trigger my live pipeline instead
           </PillLink>
         </div>

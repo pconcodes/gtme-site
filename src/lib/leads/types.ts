@@ -1,6 +1,8 @@
 export interface Lead {
   email: string;
   linkedinUrl: string;
+  /** Which form captured the lead; "socket" = the /socket pitch-page form. */
+  source?: "socket";
 }
 
 export interface Enrichment {
