@@ -1,9 +1,10 @@
-export type LeadSource = "socket" | "render";
+export type LeadSource = "socket" | "render" | "owner";
 
 /** Display names for pitch-page sources, used in notification/auto-reply copy. */
 export const LEAD_SOURCE_LABELS: Record<LeadSource, string> = {
   socket: "Socket",
   render: "Render",
+  owner: "Owner.com",
 };
 
 export interface Lead {
