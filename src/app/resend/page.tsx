@@ -134,7 +134,7 @@ function PillLink({
 function Kicker({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="font-mono text-xs uppercase tracking-[0.2em]"
+      className="font-mono text-2xl uppercase tracking-[0.2em]"
       style={{ color: c.faint }}
     >
       {children}
@@ -400,9 +400,9 @@ export default function ResendPitchPage() {
       {/* CTA */}
       <section className="px-6 py-24 text-center" style={{ borderTop: `1px solid ${c.borderSoft}` }}>
         <h2 className="text-4xl tracking-tight sm:text-6xl" style={serif}>
-          Reach pipeline,
+          Give Resend&apos;s GTM
           <br />
-          <span style={{ ...gradientText, ...serif }}>not busywork.</span>
+          <span style={{ ...gradientText, ...serif }}>its fastest path to production.</span>
         </h2>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <PillLink href={CALENDLY_URL}>Book 30 minutes</PillLink>
