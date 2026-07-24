@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 /**
@@ -84,10 +85,6 @@ const shipped = [
     link: { href: "/case-studies/live-lead-pipeline", label: "Case study →" },
   },
   {
-    title: "Self-hosted open-source n8n",
-    body: "Deployed n8n's OSS build to a Render web service backed by Supabase Postgres — connection pooling, SSL workarounds, schema isolation, a keep-alive workflow, and published production automations.",
-  },
-  {
     title: "Real-estate data-entry MVP",
     body: "Built an MVP application that takes the manual data entry out of a real-estate agent's workflow — the same instinct as GTM engineering, pointed at a different industry.",
     link: { href: "https://www.swiftlisting.ai/", label: "swiftlisting.ai →" },
@@ -101,6 +98,16 @@ const shipped = [
     title: "Memoir landing page on Astro",
     body: "Designed and shipped a memoir landing page on Astro — a different framework chosen deliberately for a content-first, zero-JS-by-default page.",
     link: { href: "https://fatherifoundmyway.com/", label: "fatherifoundmyway.com →" },
+  },
+  {
+    title: "Self-hosted open-source n8n",
+    body: "Deployed n8n's OSS build to a Render web service backed by Supabase Postgres — connection pooling, SSL workarounds, schema isolation, a keep-alive workflow, and published production automations.",
+    image: {
+      src: "/n8n-render.png",
+      alt: "Render dashboard showing the n8n web service live on a Standard instance",
+      width: 674,
+      height: 366,
+    },
   },
 ];
 
@@ -292,6 +299,16 @@ export default function ClickHousePitchPage() {
               <p className="mt-2 text-sm leading-6" style={{ color: c.muted }}>
                 {s.body}
               </p>
+              {s.image && (
+                <Image
+                  src={s.image.src}
+                  alt={s.image.alt}
+                  width={s.image.width}
+                  height={s.image.height}
+                  className="mt-4 h-auto w-full max-w-72 rounded-lg"
+                  style={{ border: `1px solid ${c.border}` }}
+                />
+              )}
               {s.link && (
                 <a
                   href={s.link.href}
