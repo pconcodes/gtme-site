@@ -1,4 +1,10 @@
-export type LeadSource = "socket" | "render" | "owner" | "bolt" | "resend";
+export type LeadSource =
+  | "socket"
+  | "render"
+  | "owner"
+  | "bolt"
+  | "resend"
+  | "clickhouse";
 
 /** Display names for pitch-page sources, used in notification/auto-reply copy. */
 export const LEAD_SOURCE_LABELS: Record<LeadSource, string> = {
@@ -7,6 +13,7 @@ export const LEAD_SOURCE_LABELS: Record<LeadSource, string> = {
   owner: "Owner.com",
   bolt: "Bolt.new",
   resend: "Resend",
+  clickhouse: "ClickHouse",
 };
 
 export interface Lead {
